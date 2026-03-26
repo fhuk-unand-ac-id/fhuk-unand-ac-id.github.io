@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fakultas Hukum Universitas Andalas | Integritas Hukum, Pilar Kebangsaan</title>
+<link rel="icon" href="https://fhuk.unand.ac.id/assets/img/favicon.svg" sizes="32x32" />
+<meta name="google-site-verification" content="SrTZawFSaLAONuV52vjH13dAEw3zOeO0J7W9G7wwpi8" />
+<meta name="google-site-verification" content="yJBfmhNc2ELo5q5P70MYQ5sxNmv0Jwj9S_2mqL_Btpc" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Open Sans', sans-serif; font-size: 14px; color: #333; background: #fff; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; transition: color 0.2s; }
+img { max-width: 100%; height: auto; }
+ul { list-style: none; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+
+/* ===== TOP HEADER (OFFCANVAS TRIGGER BAR) ===== */
+#top-header {
+  background: #1b3a6b;
+  padding: 8px 0;
+}
+#top-header .container { display: flex; align-items: center; justify-content: space-between; }
+.top-contact { display: flex; gap: 20px; align-items: center; }
+.top-contact a { color: rgba(255,255,255,0.8); font-size: 12px; display: flex; align-items: center; gap: 6px; }
+.top-contact a:hover { color: #fff; }
+.top-contact a i { color: #c9a227; }
+.top-lang { display: flex; gap: 4px; }
+.top-lang a {
+  color: rgba(255,255,255,0.8); font-size: 11px; font-weight: 600;
+  padding: 3px 9px; border: 1px solid rgba(255,255,255,0.3); border-radius: 3px;
+}
+.top-lang a.active, .top-lang a:hover { background: #c9a227; border-color: #c9a227; color: #fff; }
+
+/* ===== MAIN NAVBAR ===== */
+#navbar {
+  background: #a3b4cf;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+.navbar-inner { display: flex; align-items: stretch; justify-content: space-between; }
+
+/* LOGO */
+.navbar-brand { display: flex; align-items: center; padding: 10px 0; gap: 0; }
+.navbar-brand .logo-white { display: block; height: 55px; width: auto; }
+.navbar-brand .logo-color { display: none; height: 55px; width: auto; }
+
+/* NAV MENU */
+.nav-menu { display: flex; align-items: stretch; }
+.nav-menu > li { position: relative; display: flex; align-items: stretch; }
+.nav-menu > li > a {
+  display: flex; align-items: center; gap: 4px;
+  padding: 0 13px;
+  font-size: 13px; font-weight: 600;
+  color: #333;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-menu > li > a:hover,
+.nav-menu > li.active > a {
+  color: #1b3a6b;
+  border-bottom-color: #1b3a6b;
+}
+.nav-menu > li > a .nav-arrow { font-size: 9px; margin-left: 2px; }
+
+/* DROPDOWN */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border-top: 3px solid #1b3a6b;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  min-width: 210px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: all 0.22s ease;
+  z-index: 9999;
+  border-radius: 0 0 4px 4px;
+}
+.nav-menu > li:hover > .dropdown-menu {
+  opacity: 1; visibility: visible; transform: translateY(0);
+}
+.dropdown-menu.wide { min-width: 580px; display: flex; flex-wrap: wrap; }
+.dropdown-menu.wide2 { min-width: 420px; display: flex; flex-wrap: wrap; }
+.dropdown-menu.wide3 { min-width: 650px; display: flex; flex-wrap: wrap; }
+
+.dropdown-col { flex: 1; min-width: 190px; }
+.dropdown-col + .dropdown-col { border-left: 1px solid #f0f0f0; }
+
+.dropdown-header {
+  padding: 8px 16px 5px;
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: #c9a227;
+  border-bottom: 1px solid #f5f5f5;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 7px 16px;
+  font-size: 13px;
+  color: #444;
+  transition: all 0.15s;
+}
+.dropdown-menu a:hover {
+  background: #f5f8ff;
+  color: #1b3a6b;
+  padding-left: 20px;
+}
+
+/* ===== OFFCANVAS (MOBILE) ===== */
+.offcanvas-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 10000;
+}
+.offcanvas-overlay.open { display: block; }
+.offcanvas {
+  position: fixed;
+  top: 0; right: -360px;
+  width: 340px; height: 100%;
+  background: #fff;
+  z-index: 10001;
+  overflow-y: auto;
+  transition: right 0.3s;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.2);
+}
+.offcanvas.open { right: 0; }
+.offcanvas-head {
+  background: #1b3a6b;
+  padding: 16px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.offcanvas-head img { height: 40px; }
+.offcanvas-close { background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; }
+.offcanvas-body { padding: 10px 0; }
+.offcanvas-body .nav-section { padding: 8px 20px 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #c9a227; }
+.offcanvas-body a { display: block; padding: 9px 20px; font-size: 13.5px; color: #333; border-bottom: 1px solid #f5f5f5; }
+.offcanvas-body a:hover { color: #1b3a6b; background: #f8f9fa; }
+.offcanvas-body .sub-a { padding-left: 36px; font-size: 13px; color: #555; }
+.offcanvas-info {
+  background: #f8f9fa;
+  padding: 16px 20px;
+  margin-top: 10px;
+}
+.offcanvas-info h5 { font-size: 13px; font-weight: 700; color: #1b3a6b; margin-bottom: 10px; }
+.offcanvas-info p { font-size: 12px; color: #555; margin-bottom: 5px; display: flex; align-items: flex-start; gap: 8px; }
+.offcanvas-info p i { color: #c9a227; margin-top: 2px; flex-shrink: 0; }
+
+/* Hamburger */
+.nav-toggler {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+  margin-left: 10px;
+}
+.nav-toggler span { width: 24px; height: 2px; background: #1b3a6b; border-radius: 2px; transition: all 0.3s; display: block; }
+
+/* ===== HERO SLIDER ===== */
+#hero { position: relative; overflow: hidden; background: #0d1e3b; }
+.hero-slides { position: relative; }
+.hero-slide {
+  display: none;
+  position: relative;
+  min-height: 550px;
+  background: linear-gradient(105deg, #0d1e3b 0%, #1b3a6b 50%, #2756a0 100%);
+  align-items: center;
+  overflow: hidden;
+}
+.hero-slide.active { display: flex; }
+.hero-slide::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='40' stroke='white' stroke-opacity='0.03' stroke-width='1' fill='none'/%3E%3C/svg%3E") repeat;
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 2; width: 100%; }
+.hero-row { display: flex; align-items: center; gap: 40px; }
+.hero-text { flex: 1; color: #fff; }
+.hero-badge {
+  display: inline-block;
+  background: #c9a227; color: #fff;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 2px;
+  margin-bottom: 20px;
+}
+.hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 42px; font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 18px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+.hero-desc { font-size: 16px; color: rgba(255,255,255,0.82); line-height: 1.7; margin-bottom: 28px; max-width: 560px; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-hero-primary {
+  background: #c9a227; color: #fff;
+  padding: 12px 28px; border-radius: 4px;
+  font-size: 14px; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.25s;
+  border: 2px solid #c9a227;
+}
+.btn-hero-primary:hover { background: #e0b72e; border-color: #e0b72e; transform: translateY(-2px); }
+.btn-hero-outline {
+  background: transparent; color: #fff;
+  padding: 12px 28px; border-radius: 4px;
+  font-size: 14px; font-weight: 600;
+  border: 2px solid rgba(255,255,255,0.6);
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.25s;
+}
+.btn-hero-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+.hero-img-side { flex: 0 0 320px; text-align: center; }
+.hero-img-side img { max-height: 380px; object-fit: contain; filter: drop-shadow(0 10px 40px rgba(0,0,0,0.4)); }
+
+/* Hero controls */
+.hero-ctrl {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff; width: 42px; height: 42px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 15px; z-index: 10;
+  transition: all 0.3s; backdrop-filter: blur(4px);
+}
+.hero-ctrl:hover { background: #c9a227; border-color: #c9a227; }
+.hero-prev { left: 16px; }
+.hero-next { right: 16px; }
+.hero-dots {
+  position: absolute; bottom: 20px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; gap: 8px; z-index: 10;
+}
+.hero-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer; border: none; transition: all 0.3s;
+}
+.hero-dot.active { background: #c9a227; width: 22px; border-radius: 4px; }
+
+/* ===== SECTION BASE ===== */
+section { padding: 70px 0; }
+.sec-label {
+  display: block;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #c9a227;
+  margin-bottom: 8px;
+}
+.sec-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px; font-weight: 700;
+  color: #1b3a6b; line-height: 1.3;
+  margin-bottom: 12px;
+}
+.sec-sub { font-size: 15px; color: #666; line-height: 1.65; }
+.sec-line {
+  width: 45px; height: 3px;
+  background: linear-gradient(90deg,#1b3a6b,#c9a227);
+  border-radius: 2px; margin: 14px 0 0;
+}
+.sec-line.center { margin: 14px auto 0; }
+.text-center { text-align: center; }
+
+/* ===== ABOUT SECTION ===== */
+#about { background: #f8f9fb; }
+.about-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 40px; }
+.about-card {
+  background: #fff;
+  border-radius: 8px;
+  border-top: 4px solid #1b3a6b;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+  padding: 28px 24px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.about-card:hover { transform: translateY(-5px); box-shadow: 0 8px 28px rgba(0,0,0,0.11); }
+.about-cat { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #c9a227; margin-bottom: 8px; }
+.about-card h3 { font-family: 'Poppins',sans-serif; font-size: 18px; font-weight: 700; color: #1b3a6b; margin-bottom: 10px; }
+.about-card p { font-size: 13.5px; color: #666; line-height: 1.65; }
+.read-more { display: inline-flex; align-items: center; gap: 6px; color: #1b3a6b; font-size: 13px; font-weight: 600; margin-top: 14px; transition: gap 0.2s, color 0.2s; }
+.read-more:hover { gap: 10px; color: #c9a227; }
+
+/* ===== LEADERSHIP ===== */
+#leadership { background: #fff; }
+.leader-grid { display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; margin-top: 40px; }
+.leader-card { text-align: center; }
+.leader-card a { display: block; }
+.leader-photo {
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 14px;
+  border: 4px solid #1b3a6b;
+  box-shadow: 0 4px 18px rgba(27,58,107,0.2);
+  transition: transform 0.3s;
+}
+.leader-card:hover .leader-photo { transform: scale(1.04); }
+.leader-photo img { width: 100%; height: 100%; object-fit: cover; }
+.leader-name { font-family: 'Poppins',sans-serif; font-size: 14px; font-weight: 700; color: #1b3a6b; margin-bottom: 5px; }
+.leader-pos {
+  display: inline-block;
+  background: #1b3a6b; color: #fff;
+  font-size: 11px; font-weight: 600;
+  padding: 4px 12px; border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* ===== UPT SECTION ===== */
+#upt { background: #f8f9fb; }
+.upt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+.upt-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+  display: flex; align-items: flex-start; gap: 18px;
+  transition: transform 0.3s;
+}
+.upt-card:hover { transform: translateY(-4px); }
+.upt-card img.upt-icon { width: 56px; height: 56px; object-fit: contain; flex-shrink: 0; }
+.upt-card h4 { font-family:'Poppins',sans-serif; font-size: 16px; font-weight: 700; color: #1b3a6b; margin-bottom: 6px; }
+.upt-card p { font-size: 13px; color: #666; line-height: 1.6; }
+
+/* Selayang feature cards */
+.slayf-wrap { margin-top: 40px; position: relative; }
+.slayf-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 30px; }
+.slayf-card {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  min-height: 220px;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+}
+.slayf-card img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform 0.4s; }
+.slayf-card:hover img { transform: scale(1.05); }
+.slayf-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(11,29,60,0.85) 0%, rgba(11,29,60,0.2) 60%, transparent 100%);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 22px 20px;
+}
+.slayf-num { font-family:'Poppins',sans-serif; font-size: 32px; font-weight: 800; color: rgba(255,255,255,0.15); line-height: 1; margin-bottom: 4px; }
+.slayf-overlay h4 { font-family:'Poppins',sans-serif; font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.slayf-overlay a { display: inline-flex; align-items: center; gap: 6px; color: #c9a227; font-size: 12px; font-weight: 600; }
+.slayf-overlay a:hover { gap: 10px; }
+
+/* ===== NEWS SECTION ===== */
+#news { background: #fff; }
+.news-layout { display: grid; grid-template-columns: 1fr 380px; gap: 28px; margin-top: 40px; }
+.news-main-cards { display: flex; flex-direction: column; gap: 22px; }
+.news-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+  display: flex;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.news-card:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(0,0,0,0.11); }
+.news-card-img { width: 180px; flex-shrink: 0; overflow: hidden; }
+.news-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.news-card:hover .news-card-img img { transform: scale(1.05); }
+.news-card-body { padding: 20px 22px; flex: 1; }
+.news-tag {
+  display: inline-block;
+  background: #1b3a6b; color: #fff;
+  font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 2px;
+  margin-bottom: 10px;
+}
+.news-card-body h3 { font-family:'Poppins',sans-serif; font-size: 16px; font-weight: 700; color: #1b3a6b; margin-bottom: 8px; line-height: 1.4; }
+.news-card-body p { font-size: 13px; color: #666; line-height: 1.65; }
+.news-card-body .news-read { display: inline-flex; align-items: center; gap: 5px; color: #1b3a6b; font-size: 12.5px; font-weight: 600; margin-top: 12px; }
+.news-card-body .news-read:hover { color: #c9a227; }
+
+/* Side news */
+.news-side { display: flex; flex-direction: column; gap: 0; }
+.news-side-card {
+  display: flex; gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s;
+}
+.news-side-card:hover { background: #f8f9fb; padding-left: 8px; }
+.news-side-img { width: 90px; height: 70px; flex-shrink: 0; border-radius: 5px; overflow: hidden; }
+.news-side-img img { width: 100%; height: 100%; object-fit: cover; }
+.news-side-body h4 { font-size: 13px; font-weight: 700; color: #1b3a6b; line-height: 1.4; margin-bottom: 5px; }
+.news-side-body .news-cat-sm { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #c9a227; }
+
+.view-all-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 2px solid #1b3a6b; color: #1b3a6b;
+  padding: 10px 26px; border-radius: 4px;
+  font-size: 13.5px; font-weight: 600;
+  transition: all 0.25s;
+  margin-top: 20px;
+}
+.view-all-btn:hover { background: #1b3a6b; color: #fff; }
+
+/* ===== SCHOLARSHIP BANNER ===== */
+#scholarship {
+  background: linear-gradient(135deg, #0d1e3b 0%, #1b3a6b 100%);
+  padding: 50px 0;
+}
+.scholarship-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.scholarship-text h2 { font-family:'Poppins',sans-serif; font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+.scholarship-text p { font-size: 15px; color: rgba(255,255,255,0.78); max-width: 600px; line-height: 1.65; }
+.scholarship-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #c9a227; color: #fff;
+  padding: 13px 30px; border-radius: 4px;
+  font-size: 14px; font-weight: 700;
+  white-space: nowrap; flex-shrink: 0;
+  transition: all 0.25s;
+}
+.scholarship-btn:hover { background: #e0b72e; transform: translateY(-2px); }
+
+/* ===== ANNOUNCEMENT & AGENDA ===== */
+#announcement { background: #f8f9fb; }
+.ann-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; margin-top: 40px; }
+.ann-col-title {
+  font-family:'Poppins',sans-serif;
+  font-size: 18px; font-weight: 700; color: #1b3a6b;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e8e8e8;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.ann-col-title i { color: #c9a227; }
+/* Featured announcement */
+.ann-featured {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+  margin-bottom: 16px;
+}
+.ann-featured img { width: 100%; height: 160px; object-fit: cover; }
+.ann-featured-body { padding: 16px; }
+.ann-featured-body .ann-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #c9a227; margin-bottom: 6px; }
+.ann-featured-body h3 { font-family:'Poppins',sans-serif; font-size: 15px; font-weight: 700; color: #1b3a6b; margin-bottom: 6px; line-height: 1.4; }
+.ann-featured-body .ann-date { font-size: 11.5px; color: #888; }
+.ann-featured-body p { font-size: 13px; color: #666; line-height: 1.6; margin-top: 6px; }
+
+.ann-item {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 14px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.ann-item:last-child { border-bottom: none; }
+.ann-date-box {
+  background: #1b3a6b; color: #fff;
+  width: 46px; flex-shrink: 0;
+  text-align: center; padding: 8px 4px;
+  border-radius: 6px;
+}
+.ann-date-box .d { font-size: 20px; font-weight: 700; line-height: 1; }
+.ann-date-box .m { font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+.ann-item-body h4 { font-size: 13.5px; font-weight: 700; color: #1b3a6b; margin-bottom: 4px; line-height: 1.4; }
+.ann-item-body p { font-size: 12.5px; color: #666; line-height: 1.55; }
+
+/* Agenda */
+.agenda-item {
+  display: flex; gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.agenda-item:last-child { border-bottom: none; }
+.agenda-icon-wrap {
+  width: 42px; height: 42px; flex-shrink: 0;
+  background: linear-gradient(135deg,#1b3a6b,#2756a0);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 16px;
+}
+.agenda-body h4 { font-size: 13.5px; font-weight: 700; color: #1b3a6b; margin-bottom: 4px; line-height: 1.4; }
+.agenda-body p { font-size: 12px; color: #888; }
+.agenda-body .agenda-date { font-size: 11.5px; color: #c9a227; font-weight: 600; margin-top: 4px; display: flex; align-items: center; gap: 5px; }
+
+/* ===== CAMPUS ===== */
+#campus { background: #fff; }
+.campus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+.campus-card {
+  border-radius: 10px; overflow: hidden;
+  position: relative; cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+.campus-card:hover { transform: scale(1.02); }
+.campus-card img { width: 100%; height: 260px; object-fit: cover; display: block; transition: transform 0.4s; }
+.campus-card:hover img { transform: scale(1.05); }
+.campus-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(9,23,50,0.82) 0%, rgba(9,23,50,0.1) 60%, transparent 100%);
+  display: flex; flex-direction: column;
+  justify-content: flex-end;
+  padding: 26px;
+}
+.campus-overlay h3 { font-family:'Poppins',sans-serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.campus-tour-link { display: inline-flex; align-items: center; gap: 6px; color: #c9a227; font-size: 13px; font-weight: 600; }
+.campus-tour-link:hover { gap: 10px; }
+
+/* ===== ACCREDITATION ===== */
+#accreditation { background: #f8f9fb; }
+.accred-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-top: 40px; }
+.accred-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+.accred-card:hover { transform: translateY(-5px); box-shadow: 0 8px 26px rgba(0,0,0,0.12); }
+.accred-card img { width: 100%; height: auto; display: block; }
+
+/* ===== ARTICLE / OPINI ===== */
+#artikel { background: #fff; }
+.artikel-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 40px; }
+.artikel-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.artikel-card:hover { transform: translateY(-5px); box-shadow: 0 8px 26px rgba(0,0,0,0.12); }
+.artikel-card img { width: 100%; height: 180px; object-fit: cover; display: block; transition: transform 0.4s; }
+.artikel-card:hover img { transform: scale(1.04); }
+.artikel-body { padding: 20px; }
+.artikel-body h3 { font-family:'Poppins',sans-serif; font-size: 15.5px; font-weight: 700; color: #1b3a6b; margin-bottom: 8px; line-height: 1.4; }
+.artikel-body p { font-size: 13px; color: #666; line-height: 1.65; }
+.artikel-author { font-size: 12px; color: #c9a227; font-weight: 600; margin-top: 12px; display: flex; align-items: center; gap: 5px; }
+
+/* ===== APLIKASI ===== */
+#aplikasi { background: #f8f9fb; }
+.app-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 16px; margin-top: 40px; }
+.app-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  display: block;
+}
+.app-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.app-card img { width: 100%; height: auto; display: block; }
+
+/* Banner row */
+.banner-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 30px; }
+.banner-card {
+  background: #fff;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.3s;
+}
+.banner-card:hover { transform: translateY(-3px); }
+.banner-card img { max-height: 50px; object-fit: contain; filter: grayscale(20%); transition: filter 0.3s; }
+.banner-card:hover img { filter: grayscale(0); }
+
+/* ===== VIDEO ===== */
+#video-section { background: #fff; }
+.video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+.video-featured {
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+}
+.video-featured img { width: 100%; height: 280px; object-fit: cover; opacity: 0.8; transition: opacity 0.3s; display: block; }
+.video-featured:hover img { opacity: 0.65; }
+.video-play-btn {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 64px; height: 64px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; color: #1b3a6b;
+  transition: transform 0.3s, background 0.3s;
+}
+.video-featured:hover .video-play-btn { transform: translate(-50%,-50%) scale(1.1); background: #fff; }
+.video-list { display: flex; flex-direction: column; gap: 14px; }
+.video-item {
+  display: flex; gap: 14px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+.video-item:hover { transform: translateX(4px); }
+.video-item-thumb { width: 110px; flex-shrink: 0; position: relative; overflow: hidden; }
+.video-item-thumb img { width: 100%; height: 75px; object-fit: cover; display: block; }
+.video-item-thumb .play-sm {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 28px; height: 28px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; color: #1b3a6b;
+}
+.video-item-body { padding: 12px; }
+.video-item-body h4 { font-size: 13px; font-weight: 700; color: #1b3a6b; line-height: 1.4; }
+
+/* ===== NEWSLETTER ===== */
+#newsletter {
+  background: linear-gradient(135deg,#0d1e3b 0%,#1b3a6b 100%);
+  padding: 60px 0;
+  text-align: center;
+}
+#newsletter .sec-title { color: #fff; }
+#newsletter p { color: rgba(255,255,255,0.75); margin-bottom: 28px; font-size: 15px; }
+.newsletter-form { display: flex; max-width: 500px; margin: 0 auto; }
+.newsletter-form input {
+  flex: 1; padding: 13px 20px;
+  border: none; border-radius: 4px 0 0 4px;
+  font-size: 14px; font-family: 'Open Sans',sans-serif;
+  outline: none;
+}
+.newsletter-form button {
+  padding: 13px 26px;
+  background: #c9a227; color: #fff; border: none;
+  border-radius: 0 4px 4px 0;
+  font-size: 14px; font-weight: 700; cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.newsletter-form button:hover { background: #e0b72e; }
+
+/* ===== FOOTER ===== */
+#footer { background: #0d1e3b; color: rgba(255,255,255,0.7); padding: 60px 0 0; }
+.footer-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer-logo-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.footer-logo-wrap img { height: 50px; }
+.footer-brand-name { font-family:'Poppins',sans-serif; font-size: 14px; font-weight: 700; color: #fff; line-height: 1.3; }
+.footer-brand-sub { font-size: 11px; color: #c9a227; margin-top: 2px; }
+.footer-brand p { font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.6); margin-bottom: 14px; }
+.footer-contact-list { display: flex; flex-direction: column; gap: 8px; font-size: 13px; }
+.footer-contact-list a { color: rgba(255,255,255,0.6); display: flex; align-items: flex-start; gap: 8px; }
+.footer-contact-list a:hover { color: #c9a227; }
+.footer-contact-list i { color: #c9a227; margin-top: 2px; flex-shrink: 0; }
+.footer-social { display: flex; gap: 8px; margin-top: 16px; }
+.footer-social a {
+  width: 34px; height: 34px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.7); font-size: 14px;
+  transition: all 0.3s;
+}
+.footer-social a:hover { background: #c9a227; color: #fff; transform: translateY(-3px); }
+.footer-col h5 {
+  font-family:'Poppins',sans-serif;
+  font-size: 14px; font-weight: 700; color: #fff;
+  margin-bottom: 16px; padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+}
+.footer-col h5::after { content:''; position:absolute; bottom:-1px; left:0; width:28px; height:2px; background:#c9a227; }
+.footer-col ul { display: flex; flex-direction: column; gap: 7px; }
+.footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 6px; transition: all 0.2s; }
+.footer-col ul li a:hover { color: #c9a227; padding-left: 4px; }
+.footer-col ul li a::before { content:'›'; color:#c9a227; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 18px 0;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+}
+.footer-bottom p { font-size: 12.5px; color: rgba(255,255,255,0.45); }
+.footer-bottom-links { display: flex; gap: 16px; }
+.footer-bottom-links a { font-size: 12px; color: rgba(255,255,255,0.45); }
+.footer-bottom-links a:hover { color: #c9a227; }
+.footer-logo-bottom { text-align: center; margin-top: 10px; }
+.footer-logo-bottom img { height: 40px; opacity: 0.7; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .accred-grid { grid-template-columns: repeat(2,1fr); }
+  .app-grid { grid-template-columns: repeat(3,1fr); }
+  .banner-grid { grid-template-columns: repeat(2,1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .news-layout { grid-template-columns: 1fr; }
+  .hero-img-side { display: none; }
+}
+@media (max-width: 768px) {
+  .nav-menu { display: none; }
+  .nav-toggler { display: flex; }
+  .about-grid,.upt-grid,.slayf-grid,.campus-grid,.artikel-grid,.video-grid { grid-template-columns: 1fr; }
+  .ann-layout { grid-template-columns: 1fr; }
+  .hero-slide { min-height: 400px; }
+  .hero-title { font-size: 28px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .top-contact { display: none; }
+  .accred-grid { grid-template-columns: 1fr 1fr; }
+  .leader-grid { gap: 20px; }
+  .leader-photo { width: 120px; height: 120px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TOP HEADER ===== -->
+<div id="top-header">
+  <div class="container">
+    <div class="top-contact">
+      <a href="mailto:sekretariat@fhuk.unand.ac.id"><i class="fas fa-envelope"></i> sekretariat@fhuk.unand.ac.id</a>
+      <a href="tel:+6275172985"><i class="fas fa-phone"></i> +62-751-72985</a>
+      <a href="#"><i class="fas fa-clock"></i> Senin - Jumat: 9:00 - 18:00</a>
+    </div>
+    <div class="top-lang">
+      <a href="#" class="active">ID</a>
+      <a href="#">EN</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+
+      <!-- LOGO (menggunakan gambar asli dari server) -->
+      <a href="https://fhuk.unand.ac.id" class="navbar-brand">
+        <img src="https://fhuk.unand.ac.id/assets/img/logo/white-logo.png"
+             alt="logo FH Unand"
+             class="logo-white"
+             style="height:55px;width:auto;"
+             onerror="this.onerror=null;this.src='https://fhuk.unand.ac.id/assets/img/logo/logo.png';">
+      </a>
+
+      <!-- NAV MENU -->
+      <ul class="nav-menu">
+        <li class="active"><a href="https://fhuk.unand.ac.id">Beranda</a></li>
+
+        <!-- PROFIL -->
+        <li>
+          <a href="https://fhuk.unand.ac.id/profil">Profil <i class="fas fa-angle-down nav-arrow"></i></a>
+          <div class="dropdown-menu wide">
+            <div class="dropdown-col">
+              <div class="dropdown-header">Selayang Pandang</div>
+              <a href="https://fhuk.unand.ac.id/profil/1/sejarah.html">Sejarah</a>
+              <a href="https://fhuk.unand.ac.id/profil/2/visi-dan-misi.html">Visi dan Misi</a>
+              <a href="https://fhuk.unand.ac.id/profil/3/struktur-organisasi.html">Struktur Organisasi</a>
+              <a href="https://fhuk.unand.ac.id/profil/4/karakter-andalasian.html">Karakter Andalasian</a>
+              <a href="https://fhuk.unand.ac.id/profil/5/rencana-strategis.html">Rencana Strategis</a>
+              <a href="https://fhuk.unand.ac.id/profil/6/prospectus.html">Prospectus</a>
+            </div>
+            <div class="dropdown-col">
+              <div class="dropdown-header">Unit Pelayanan Teknis</div>
+              <a href="https://fhuk.unand.ac.id/profil/7/perpustakaan-universitas-andalas.html">Perpustakaan Universitas Andalas</a>
+              <a href="https://fhuk.unand.ac.id/profil/8/pusat-bahasa-universitas-andalas.html">Pusat Bahasa Universitas Andalas</a>
+              <div class="dropdown-header" style="margin-top:8px;">SDM</div>
+              <a href="https://fhuk.unand.ac.id/dosen">Dosen</a>
+              <a href="https://fhuk.unand.ac.id/karyawan">Tenaga Kependidikan</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- AKADEMIK -->
+        <li>
+          <a href="https://fhuk.unand.ac.id/akademik">Akademik <i class="fas fa-angle-down nav-arrow"></i></a>
+          <div class="dropdown-menu wide">
+            <div class="dropdown-col">
+              <div class="dropdown-header">Informasi Akademik</div>
+              <a href="https://fhuk.unand.ac.id/akademik/1/akreditasi.html">Akreditasi</a>
+              <a href="https://fhuk.unand.ac.id/akademik/2/kalender-akademik.html">Kalender Akademik</a>
+              <a href="https://fhuk.unand.ac.id/akademik/3/angka-efisiensi-edukasi-aee.html">Angka Efisiensi Edukasi (AEE)</a>
+              <div class="dropdown-header" style="margin-top:8px;">Jadwal Kuliah</div>
+              <a href="https://fhuk.unand.ac.id/akademik/4/sarjana-hukum.html">Sarjana Hukum</a>
+              <a href="https://fhuk.unand.ac.id/akademik/5/magister-hukum.html">Magister Hukum</a>
+              <a href="https://fhuk.unand.ac.id/akademik/6/magister-kenotariatan.html">Magister Kenotariatan</a>
+              <a href="https://fhuk.unand.ac.id/akademik/7/doktor-hukum.html">Doktor Hukum</a>
+            </div>
+            <div class="dropdown-col">
+              <div class="dropdown-header">Jadwal Ujian</div>
+              <a href="https://fhuk.unand.ac.id/akademik/8/sarjana-hukum.html">Sarjana Hukum</a>
+              <a href="https://fhuk.unand.ac.id/akademik/9/magister-hukum.html">Magister Hukum</a>
+              <a href="https://fhuk.unand.ac.id/akademik/10/magister-kenotariatan.html">Magister Kenotariatan</a>
+              <a href="https://fhuk.unand.ac.id/akademik/11/doktor-hukum.html">Doktor Hukum</a>
+              <div class="dropdown-header" style="margin-top:8px;">KKN</div>
+              <a href="https://fhuk.unand.ac.id/akademik/kategori/4/kkn-fakultas-hukum-unand.html">KKN Fakultas Hukum Unand</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- PROGRAM STUDI -->
+        <li>
+          <a href="https://fhuk.unand.ac.id/prodi">Program Studi <i class="fas fa-angle-down nav-arrow"></i></a>
+          <div class="dropdown-menu wide3">
+            <div class="dropdown-col">
+              <div class="dropdown-header">Sarjana Hukum (SH)</div>
+              <a href="https://fhuk.unand.ac.id/prodi/1/deskripsi.html">Deskripsi</a>
+              <a href="https://fhuk.unand.ac.id/prodi/2/visi-dan-misi.html">Visi dan Misi</a>
+              <a href="https://fhuk.unand.ac.id/prodi/3/kurikulum.html">Kurikulum</a>
+              <a href="https://fhuk.unand.ac.id/prodi/4/akreditasi.html">Akreditasi</a>
+              <a href="https://fhuk.unand.ac.id/prodi/5/pedoman-penulisan-tugas-akhir.html">Pedoman Penulisan Tugas Akhir</a>
+            </div>
+            <div class="dropdown-col">
+              <div class="dropdown-header">Magister Hukum (MIH)</div>
+              <a href="https://fhuk.unand.ac.id/prodi/6/deskripsi.html">Deskripsi</a>
+              <a href="https://fhuk.unand.ac.id/prodi/7/visi-dan-misi.html">Visi dan Misi</a>
+              <a href="https://fhuk.unand.ac.id/prodi/8/kurikulum.html">Kurikulum</a>
+              <a href="https://fhuk.unand.ac.id/prodi/9/rekap-data-mahasiswa-dan-lulusan.html">Rekap Data Mahasiswa dan Lulusan</a>
+              <a href="https://fhuk.unand.ac.id/prodi/10/evaluasi-kinerja-lulusan.html">Evaluasi Kinerja Lulusan</a>
+              <a href="https://fhuk.unand.ac.id/prodi/11/dosen-magister-hukum.html">Dosen Magister Hukum</a>
+              <a href="https://fhuk.unand.ac.id/prodi/12/akreditasi.html">Akreditasi</a>
+              <a href="https://fhuk.unand.ac.id/prodi/13/buku-pedoman-akademik.html">Buku Pedoman Akademik</a>
+            </div>
+            <div class="dropdown-col">
+              <div class="dropdown-header">Magister Kenotariatan (MKn)</div>
+              <a href="https://fhuk.unand.ac.id/prodi/14/deskripsi.html">Deskripsi</a>
+              <a href="https://fhuk.unand.ac.id/prodi/15/visi-dan-misi.html">Visi dan Misi</a>
+              <a href="https://fhuk.unand.ac.id/prodi/16/kurikulum.html">Kurikulum</a>
+              <a href="https://fhuk.unand.ac.id/prodi/17/akreditasi.html">Akreditasi</a>
+              <div class="dropdown-header" style="margin-top:8px;">Doktor Hukum (Dr)</div>
+              <a href="https://fhuk.unand.ac.id/prodi/18/deskripsi.html">Deskripsi</a>
+              <a href="https://fhuk.unand.ac.id/prodi/19/visi-dan-misi.html">Visi dan Misi</a>
+              <a href="https://fhuk.unand.ac.id/prodi/20/kurikulum.html">Kurikulum</a>
+              <a href="https://fhuk.unand.ac.id/prodi/21/akreditasi.html">Akreditasi</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- INFORMASI -->
+        <li>
+          <a href="https://fhuk.unand.ac.id/berita">Informasi <i class="fas fa-angle-down nav-arrow"></i></a>
+          <div class="dropdown-menu">
+            <a href="https://fhuk.unand.ac.id/berita">Berita dan Peristiwa</a>
+            <a href="https://fhuk.unand.ac.id/pengumuman">Pengumuman</a>
+            <a href="https://fhuk.unand.ac.id/agenda">Agenda Kegiatan</a>
+            <a href="https://fhuk.unand.ac.id/foto">Galeri Foto</a>
+            <a href="https://fhuk.unand.ac.id/video">Video</a>
+          </div>
+        </li>
+
+        <!-- PUBLIKASI -->
+        <li>
+          <a href="https://fhuk.unand.ac.id/publikasi">Publikasi <i class="fas fa-angle-down nav-arrow"></i></a>
+          <div class="dropdown-menu wide2">
+            <div class="dropdown-col">
+              <div class="dropdown-header">Jurnal</div>
+              <a href="https://fhuk.unand.ac.id/publikasi/1/nagari-law-review.html">Nagari Law Review</a>
+              <a href="https://fhuk.unand.ac.id/publikasi/2/andalas-law-journal.html">Andalas Law Journal</a>
+              <a href="https://fhuk.unand.ac.id/publikasi/3/lareh-law-review.html">Lareh Law Review</a>
+              <a href="https://fhuk.unand.ac.id/publikasi/4/delicti.html">Delicti</a>
+              <a href="https://fhuk.unand.ac.id/publikasi/5/andalas-notary-journal.html">Andalas Notary Journal</a>
+            </div>
+            <div class="dropdown-col">
+              <div class="dropdown-header">Publikasi Dosen</div>
+              <a href="https://fhuk.unand.ac.id/publikasi/6/data-artikel-ilmiah-dosen-fhua.html">Data Artikel Ilmiah Dosen FHUA</a>
+              <div class="dropdown-header" style="margin-top:8px;">Buku</div>
+              <a href="https://fhuk.unand.ac.id/publikasi/7/data-buku-dosen-fhua.html">Data Buku Dosen FHUA</a>
+              <div class="dropdown-header" style="margin-top:8px;">Opini</div>
+              <a href="https://fhuk.unand.ac.id/artikel/kategori/1/opini.html">Opini</a>
+              <a href="https://fhuk.unand.ac.id/artikel/kategori/2/kliping-opini.html">Kliping Opini</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- LAYANAN -->
+        <li>
+          <a href="https://fhuk.unand.ac.id/layanan">Layanan <i class="fas fa-angle-down nav-arrow"></i></a>
+          <div class="dropdown-menu wide2">
+            <div class="dropdown-col">
+              <div class="dropdown-header">Layanan</div>
+              <a href="https://fhuk.unand.ac.id/layanan">Layanan Umum</a>
+              <a href="https://fhuk.unand.ac.id/ppid">PPID</a>
+              <a href="https://fhuk.unand.ac.id/konsultasi">Konsultasi Hukum</a>
+            </div>
+            <div class="dropdown-col">
+              <div class="dropdown-header">Survey</div>
+              <a href="https://fhuk.unand.ac.id/survey/kategori/1/survey-kepuasan-pengguna.html">Survey Kepuasan Pengguna</a>
+              <a href="https://fhuk.unand.ac.id/survey/kategori/2/survey-lulusan.html">Survey Lulusan</a>
+              <a href="https://fhuk.unand.ac.id/survey/kategori/3/survey-dosen.html">Survey Dosen</a>
+              <a href="https://fhuk.unand.ac.id/survey/kategori/4/survey-edom.html">Survey Edom</a>
+              <a href="https://fhuk.unand.ac.id/survey/kategori/5/survey-kepuasan-tendik.html">Survey Kepuasan Tendik</a>
+              <a href="https://fhuk.unand.ac.id/survey/kategori/6/survey-kepuasan-mahasiswa.html">Survey Kepuasan Mahasiswa</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <!-- HAMBURGER -->
+      <button class="nav-toggler" onclick="toggleOffcanvas()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== OFFCANVAS MOBILE ===== -->
+<div class="offcanvas-overlay" id="ocOverlay" onclick="toggleOffcanvas()"></div>
+<div class="offcanvas" id="ocMenu">
+  <div class="offcanvas-head">
+    <img src="https://fhuk.unand.ac.id/assets/img/logo/white-logo.png" alt="FH Unand"
+         onerror="this.onerror=null;this.src='https://fhuk.unand.ac.id/assets/img/logo/logo.png';">
+    <button class="offcanvas-close" onclick="toggleOffcanvas()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="offcanvas-body">
+    <a href="https://fhuk.unand.ac.id">Beranda</a>
+    <div class="nav-section">Profil</div>
+    <a href="https://fhuk.unand.ac.id/profil/1/sejarah.html" class="sub-a">Sejarah</a>
+    <a href="https://fhuk.unand.ac.id/profil/2/visi-dan-misi.html" class="sub-a">Visi dan Misi</a>
+    <a href="https://fhuk.unand.ac.id/profil/3/struktur-organisasi.html" class="sub-a">Struktur Organisasi</a>
+    <a href="https://fhuk.unand.ac.id/dosen" class="sub-a">Dosen</a>
+    <a href="https://fhuk.unand.ac.id/karyawan" class="sub-a">Tenaga Kependidikan</a>
+    <div class="nav-section">Akademik</div>
+    <a href="https://fhuk.unand.ac.id/akademik/1/akreditasi.html" class="sub-a">Akreditasi</a>
+    <a href="https://fhuk.unand.ac.id/akademik/2/kalender-akademik.html" class="sub-a">Kalender Akademik</a>
+    <div class="nav-section">Program Studi</div>
+    <a href="https://fhuk.unand.ac.id/prodi/kategori/1/sarjana-hukum-sh.html" class="sub-a">Sarjana Hukum (SH)</a>
+    <a href="https://fhuk.unand.ac.id/prodi/kategori/2/magister-hukum-mih.html" class="sub-a">Magister Hukum (MIH)</a>
+    <a href="https://fhuk.unand.ac.id/prodi/kategori/3/magister-kenotariatan-mkn.html" class="sub-a">Magister Kenotariatan (MKn)</a>
+    <a href="https://fhuk.unand.ac.id/prodi/kategori/4/doktor-hukum-dr.html" class="sub-a">Doktor Hukum (Dr)</a>
+    <div class="nav-section">Informasi</div>
+    <a href="https://fhuk.unand.ac.id/berita" class="sub-a">Berita dan Peristiwa</a>
+    <a href="https://fhuk.unand.ac.id/pengumuman" class="sub-a">Pengumuman</a>
+    <a href="https://fhuk.unand.ac.id/agenda" class="sub-a">Agenda Kegiatan</a>
+    <a href="https://fhuk.unand.ac.id/foto" class="sub-a">Galeri Foto</a>
+    <a href="https://fhuk.unand.ac.id/video" class="sub-a">Video</a>
+    <div class="nav-section">Layanan</div>
+    <a href="https://fhuk.unand.ac.id/layanan" class="sub-a">Layanan Umum</a>
+    <a href="https://fhuk.unand.ac.id/ppid" class="sub-a">PPID</a>
+    <a href="https://fhuk.unand.ac.id/konsultasi" class="sub-a">Konsultasi Hukum</a>
+    <div class="offcanvas-info">
+      <h5><i class="fas fa-map-marker-alt" style="color:#c9a227;"></i> Info Kontak FH Unand</h5>
+      <p><i class="fas fa-clock"></i> Senin - Jumat: 9:00 - 18:00</p>
+      <p><i class="fas fa-phone"></i> +62-751-72985</p>
+      <p><i class="fas fa-envelope"></i> sekretariat@fhuk.unand.ac.id</p>
+      <p><i class="fas fa-map-marker-alt"></i> Gedung Dekanat FH Unand, Limau Manis, Padang, Sumatera Barat</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HERO SLIDER ===== -->
+<div id="hero">
+  <div class="hero-slides">
+    <!-- SLIDE 1 - Idul Fitri (sesuai konten asli) -->
+    <div class="hero-slide active" style="background:linear-gradient(105deg,#0d1e3b 0%,#1b3a6b 50%,#1e5c2e 100%);">
+      <div class="container hero-inner" style="padding-top:60px;padding-bottom:60px;">
+        <div class="hero-row">
+          <div class="hero-text">
+            <span class="hero-badge">Fakultas Hukum Universitas Andalas</span>
+            <h1 class="hero-title">Selamat Hari Raya<br>Idul Fitri 1447 H</h1>
+            <p class="hero-desc">Keluarga Besar Fakultas Hukum Universitas Andalas mengucapkan: Taqabbalallahu minna wa minkum, mohon maaf lahir dan batin. Semoga di hari yang suci ini kita senantiasa dalam rahmat dan keberkahan Allah SWT.</p>
+            <div class="hero-actions">
+              <a href="https://fhuk.unand.ac.id/foto/94/selamat-hari-raya-idul-fitri-1447-h.html" class="btn-hero-primary"><i class="fas fa-images"></i> Lihat Foto</a>
+              <a href="https://fhuk.unand.ac.id/foto" class="btn-hero-outline"><i class="fas fa-photo-video"></i> Galeri Foto</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 - Lustrum XV -->
+    <div class="hero-slide" style="background:linear-gradient(105deg,#0d1e3b 0%,#1b3a6b 50%,#2756a0 100%);">
+      <div class="container hero-inner" style="padding-top:60px;padding-bottom:60px;">
+        <div class="hero-row">
+          <div class="hero-text">
+            <span class="hero-badge">Lustrum ke-XV · HUT ke-75 FH Unand</span>
+            <h1 class="hero-title">Integritas Hukum,<br>Pilar Kebangsaan</h1>
+            <p class="hero-desc">Merayakan 75 tahun pengabdian Fakultas Hukum Universitas Andalas dalam menciptakan ahli hukum yang bermartabat, berintegritas, dan berdaya saing global.</p>
+            <div class="hero-actions">
+              <a href="https://fhuk.unand.ac.id/prodi" class="btn-hero-primary"><i class="fas fa-graduation-cap"></i> Program Studi</a>
+              <a href="https://fhuk.unand.ac.id/profil/1/sejarah.html" class="btn-hero-outline"><i class="fas fa-info-circle"></i> Tentang Kami</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 - PMB -->
+    <div class="hero-slide" style="background:linear-gradient(105deg,#1a1a2e 0%,#1b3a6b 50%,#6a2c70 100%);">
+      <div class="container hero-inner" style="padding-top:60px;padding-bottom:60px;">
+        <div class="hero-row">
+          <div class="hero-text">
+            <span class="hero-badge">Penerimaan Mahasiswa Baru</span>
+            <h1 class="hero-title">Bergabunglah<br>Bersama Kami</h1>
+            <p class="hero-desc">Daftarkan diri Anda ke Fakultas Hukum Universitas Andalas dan raih masa depan sebagai ahli hukum yang berkualitas, berkarakter Andalasian, dan siap menghadapi tantangan global.</p>
+            <div class="hero-actions">
+              <a href="https://fhuk.unand.ac.id/pengumuman" class="btn-hero-primary"><i class="fas fa-user-plus"></i> Lihat Pengumuman</a>
+              <a href="https://fhuk.unand.ac.id/prodi" class="btn-hero-outline"><i class="fas fa-book-open"></i> Info Program Studi</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <button class="hero-ctrl hero-prev" onclick="heroSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+  <button class="hero-ctrl hero-next" onclick="heroSlide(1)"><i class="fas fa-chevron-right"></i></button>
+  <div class="hero-dots">
+    <button class="hero-dot active" onclick="goHero(0)"></button>
+    <button class="hero-dot" onclick="goHero(1)"></button>
+    <button class="hero-dot" onclick="goHero(2)"></button>
+  </div>
+</div>
+
+<!-- ===== ABOUT SECTION ===== -->
+<section id="about">
+  <div class="container">
+    <div class="text-center">
+      <span class="sec-label">Selayang Pandang</span>
+      <h2 class="sec-title">Tentang Fakultas Hukum Universitas Andalas</h2>
+      <p class="sec-sub">Fakultas Hukum Universitas Andalas (FH Unand) adalah institusi pendidikan tinggi hukum terkemuka di Sumatera Barat, berdiri sejak 1951. Kami berkomitmen mencetak ahli hukum yang berintegritas dan berdaya saing global.</p>
+      <div class="sec-line center"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-card">
+        <p class="about-cat">Selayang Pandang</p>
+        <h3>Sejarah</h3>
+        <p>Fakultas Hukum Universitas Andalas pada mulanya adalah Perguruan Tinggi Swasta dengan nama "Perguruan Tinggi Hukum Pancasila". Perguruan Tinggi ini didirikan pada tahun 1951 di Padang, Sumatera Barat.</p>
+        <a href="https://fhuk.unand.ac.id/profil/1/sejarah.html" class="read-more">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="about-card">
+        <p class="about-cat">Selayang Pandang</p>
+        <h3>Visi dan Misi</h3>
+        <p>VISI: "Menjadi Fakultas Hukum yang bermartabat dan mampu bersaing di Tingkat global Tahun 2027". MISI: Menyelenggarakan pendidikan hukum yang berkualitas dan berdaya saing tinggi.</p>
+        <a href="https://fhuk.unand.ac.id/profil/2/visi-dan-misi.html" class="read-more">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="about-card">
+        <p class="about-cat">Selayang Pandang</p>
+        <h3>Struktur Organisasi</h3>
+        <p>PEJABAT PENGELOLA FAKULTAS — Dekan: Prof. Dr. Ferdi, SH, MH. Wakil Dekan I: Dr. Nani Mulyati, SH, MCL. Wakil Dekan II: Dr. Hengki Andora, SH, LLM.</p>
+        <a href="https://fhuk.unand.ac.id/profil/3/struktur-organisasi.html" class="read-more">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PIMPINAN SECTION ===== -->
+<section id="leadership" style="background:#fff;">
+  <div class="container">
+    <div class="text-center">
+      <span class="sec-label">Fakultas Hukum Universitas Andalas</span>
+      <h2 class="sec-title">Pimpinan Fakultas Hukum Universitas Andalas</h2>
+      <div class="sec-line center"></div>
+    </div>
+    <div class="leader-grid">
+      <div class="leader-card">
+        <a href="https://fhuk.unand.ac.id/dosen/1/prof-dr-ferdi-s-h-m-h.html">
+          <div class="leader-photo">
+            <img src="https://fhuk.unand.ac.id/assets/img/dekan.jpg" alt="Prof. Dr. Ferdi, S.H., M.H"
+                 onerror="this.style.display='none'">
+          </div>
+          <p class="leader-name">Prof. Dr. Ferdi, S.H., M.H</p>
+          <span class="leader-pos">Dekan</span>
+        </a>
+      </div>
+      <div class="leader-card">
+        <a href="https://fhuk.unand.ac.id/dosen/2/dr-nani-mulyati-sh-mcl.html">
+          <div class="leader-photo">
+            <img src="https://fhuk.unand.ac.id/assets/img/wakil-dekan-i.jpg" alt="Dr. Nani Mulyati, SH, MCL"
+                 onerror="this.style.display='none'">
+          </div>
+          <p class="leader-name">Dr. Nani Mulyati, SH, MCL</p>
+          <span class="leader-pos">Wakil Dekan I</span>
+        </a>
+      </div>
+      <div class="leader-card">
+        <a href="https://fhuk.unand.ac.id/dosen/3/dr-hengki-andora-sh-llm.html">
+          <div class="leader-photo">
+            <img src="https://fhuk.unand.ac.id/assets/img/wakil-dekan-ii.jpg" alt="Dr. Hengki Andora, SH, LLM"
+                 onerror="this.style.display='none'">
+          </div>
+          <p class="leader-name">Dr. Hengki Andora, SH, LLM</p>
+          <span class="leader-pos">Wakil Dekan II</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== UPT SECTION ===== -->
+<section id="upt">
+  <div class="container">
+    <div class="text-center">
+      <span class="sec-label">Fakultas Hukum Universitas Andalas</span>
+      <h2 class="sec-title">Unit Pelayanan Teknis (UPT)</h2>
+      <div class="sec-line center"></div>
+    </div>
+    <div class="upt-grid">
+      <div class="upt-card">
+        <img src="https://fhuk.unand.ac.id/assets/img/icon/features-icon-2.png" alt="Perpustakaan" class="upt-icon">
+        <div>
+          <h4>Perpustakaan Universitas Andalas</h4>
+          <p>Website Perpustakaan Universitas Andalas: <a href="https://pustaka.unand.ac.id/" style="color:#1b3a6b;font-weight:600;">https://pustaka.unand.ac.id/</a></p>
+        </div>
+      </div>
+      <div class="upt-card">
+        <img src="https://fhuk.unand.ac.id/assets/img/icon/features-icon-2.png" alt="Pusat Bahasa" class="upt-icon">
+        <div>
+          <h4>Pusat Bahasa Universitas Andalas</h4>
+          <p>Website Pusat Bahasa Universitas Andalas: <a href="https://lc.unand.ac.id/" style="color:#1b3a6b;font-weight:600;">https://lc.unand.ac.id/</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="slayf-grid" style="margin-top:40px;">
+      <div class="slayf-card">
+        <img src="https://fhuk.unand.ac.id/photos/2025/05/thumb_rofil-karakter-andalasian-220525084753.webp" alt="Karakter Andalasian">
+        <div class="slayf-overlay">
+          <div class="slayf-num">01</div>
+          <h4>Karakter Andalasian</h4>
+          <a href="https://fhuk.unand.ac.id/profil/4/karakter-andalasian.html">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="slayf-card">
+        <img src="https://fhuk.unand.ac.id/photos/2025/05/thumb_rofil-rencana-strategis-220525084909.webp" alt="Rencana Strategis">
+        <div class="slayf-overlay">
+          <div class="slayf-num">02</div>
+          <h4>Rencana Strategis</h4>
+          <a href="https://fhuk.unand.ac.id/profil/5/rencana-strategis.html">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="slayf-card">
+        <img src="https://fhuk.unand.ac.id/photos/2025/05/thumb_rofil-prospectus-220525085004.webp" alt="Prospectus">
+        <div class="slayf-overlay">
+          <div class="slayf-num">03</div>
+          <h4>Prospectus</h4>
+          <a href="https://fhuk.unand.ac.id/profil/6/prospectus.html">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+    <!-- YouTube embed -->
+    <div style="margin-top:40px;text-align:center;">
+      <a href="https://www.youtube.com/watch?v=qRRFpmjtX-o" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#ff0000;color:#fff;padding:12px 28px;border-radius:4px;font-size:14px;font-weight:700;">
+        <i class="fab fa-youtube" style="font-size:20px;"></i> Tonton Video Profile FH Unand
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BERITA ===== -->
+<section id="news" style="background:#fff;">
+  <div class="container">
+    <div class="text-center">
+      <span class="sec-label">Berita dan Peristiwa</span>
+      <h2 class="sec-title">Berita dan informasi terkini seputar<br>Fakultas Hukum Universitas Andalas</h2>
+      <div class="sec-line center"></div>
+    </div>
+    <div class="news-layout">
+      <!-- Main berita -->
+      <div class="news-main-cards">
+        <div class="news-card">
+          <div class="news-card-img">
+            <img src="https://fhuk.unand.ac.id/photos/2026/03/thumb_berita-fakultas-hukum-unand-lantik-ketua-ukmf-dan-hima-periode-baru-130326032624.webp" alt="Fakultas Hukum Unand Lantik Ketua UKMF">
+          </div>
+          <div class="news-card-body">
+            <span class="news-tag">Fakultas Hukum Unand</span>
+            <h3><a href="https://fhuk.unand.ac.id/berita/646/fakultas-hukum-unand-lantik-ketua-ukmf-dan-hima-periode-baru.html">Fakultas Hukum Unand Lantik Ketua UKMF dan HIMA Periode Baru</a></h3>
+            <p>Fakultas Hukum Universitas Andalas melaksanakan kegiatan pelantikan Ketua Unit Kegiatan Mahasiswa Fakultas (UKMF) dan Himpunan Mahasiswa (HIMA) pada Kamis, 12 Maret 2026...</p>
+            <a href="https://fhuk.unand.ac.id/berita/646/fakultas-hukum-unand-lantik-ketua-ukmf-dan-hima-periode-baru.html" class="news-read">Baca Selengkapnya... <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-img">
+            <img src="https://fhuk.unand.ac.id/photos/2026/03/thumb_berita-pascasarjana-fh-universitas-andalas-gelar-silaturahmi-ramadhan-dan-program-pascasarjana-110326020759.webp" alt="Pascasarjana Silaturahmi Ramadhan">
+          </div>
+          <div class="news-card-body">
+            <span class="news-tag">Fakultas Hukum Unand</span>
+            <h3><a href="https://fhuk.unand.ac.id/berita/645/pascasarjana-fh-universitas-andalas-gelar-silaturahmi-ramadhan-dan-program-pascasarjana-berbagi.html">Pascasarjana FH Universitas Andalas Gelar Silaturahmi Ramadhan dan Program "Pascasarjana Berbagi"</a></h3>
+            <p>PADANG — Pascasarjana Fakultas Hukum Universitas Andalas (FHUA) akan menggelar kegiatan Silaturahmi Ramadhan yang dirangkai dengan program sosial...</p>
+            <a href="https://fhuk.unand.ac.id/berita/645/pascasarjana-fh-universitas-andalas-gelar-silaturahmi-ramadhan-dan-program-pascasarjana-berbagi.html" class="news-read">Baca Selengkapnya... <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-img">
+            <img src="https://fhuk.unand.ac.id/photos/2026/03/thumb_berita-mahasiswa-berbagai-fakultas-raih-juara-mtq-lustrum-xv-fakultas-hukum-unand-070326094317.webp" alt="MTQ Lustrum XV">
+          </div>
+          <div class="news-card-body">
+            <span class="news-tag">Fakultas Hukum Unand</span>
+            <h3><a href="https://fhuk.unand.ac.id/berita/644/mahasiswa-berbagai-fakultas-raih-juara-mtq-lustrum-xv-fakultas-hukum-unand-2026.html">Mahasiswa Berbagai Fakultas Raih Juara MTQ Lustrum XV Fakultas Hukum Unand 2026</a></h3>
+            <p>PADANG — Rangkaian kegiatan Musabaqah Tilawatil Qur'an (MTQ) dalam rangka Lustrum ke-XV dan Hari Ulang Tahun ke-75 Fakultas Hukum Universitas Andalas...</p>
+            <a href="https://fhuk.unand.ac.id/berita/644/mahasiswa-berbagai-fakultas-raih-juara-mtq-lustrum-xv-fakultas-hukum-unand-2026.html" class="news-read">Baca Selengkapnya... <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <a href="https://fhuk.unand.ac.id/berita" class="view-all-btn">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <!-- Side news -->
+      <div class="news-side">
+        <div class="news-side-card">
+          <div class="news-side-img">
+            <img src="https://fhuk.unand.ac.id/photos/2026/03/thumb_berita-semarak-lustrum-ke-xv-dan-hut-ke-75-fakultas-hukum-unand-gelar-lomba-mtq-antar-040326115355.webp" alt="MTQ Antar Fakultas">
+          </div>
+          <div class="news-side-body">
+            <span class="news-cat-sm">Kegiatan</span>
+            <h4><a href="https://fhuk.unand.ac.id/berita/643/semarak-lustrum-ke-xv-dan-hut-ke-75-fakultas-hukum-unand-gelar-lomba-mtq-antar-fakultas.html">Semarak Lustrum ke-XV dan HUT ke-75, FH Unand Gelar Lomba MTQ Antar Fakultas</a></h4>
+          </div>
+        </div>
+        <div class="news-side-card">
+          <div class="news-side-img">
+            <img src="https://fhuk.unand.ac.id/photos/2026/01/thumb_berita-beasiswa-pkpa-xii-peratin-fakultas-hukum-universitas-andalas-280126081921.webp" alt="Beasiswa PKPA">
+          </div>
+          <div class="news-side-body">
+            <span class="news-cat-sm">Sarjana Hukum (SH)</span>
+            <h4><a href="https://fhuk.unand.ac.id/berita/641/beasiswa-pkpa-xii-peratin-fakultas-hukum-universitas-andalas.html">BEASISWA PKPA XII PERATIN FAKULTAS HUKUM UNIVERSITAS ANDALAS</a></h4>
+          </div>
+        </div>
+        <div class="news-side-card">
+          <div class="news-side-img">
+            <img src="https://fhuk.unand.ac.id/photos/2026/01/thumb_berita-dosen-terbaik-versi-edom-semester-ganjil-ta-20252026-fhua-280126081819.webp" alt="Dosen Terbaik EDOM">
+          </div>
+          <div class="news-side-body">
+            <span class="news-cat-sm">Fakultas Hukum Unand</span>
+            <h4><a href="https://fhuk.unand.ac.id/berita/640/dosen-terbaik-versi-edom-semester-ganjil-ta-2025-2026-fhua.html">DOSEN TERBAIK VERSI EDOM SEMESTER GANJIL TA 2025/2026 FHUA</a></h4>
+          </div>
+        </div>
+        <div class="news-side-card">
+          <div class="news-side-img">
+            <img src="https://fhuk.unand.ac.id/photos/2026/01/thumb_berita-ujian-terbuka-program-studi-doktor-hukum-fakultas-hukum-universitas-andalas-260126090113.webp" alt="Ujian Terbuka Doktor">
+          </div>
+          <div class="news-side-body">
+            <span class="news-cat-sm">Doktor Hukum (Dr)</span>
+            <h4><a href="https://fhuk.unand.ac.id/berita/639/ujian-terbuka-program-studi-doktor-hukum-fakultas-hukum-universitas-andalas-rahmadanil.html">UJIAN TERBUKA PROGRAM STUDI DOKTOR HUKUM FH UNAND "RAHMADANIL"</a></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SCHOLARSHIP ===== -->
+<section id="scholarship">
+  <div class="container">
+    <div class="scholarship-inner">
+      <div class="scholarship-text">
+        <h2>Program Beasiswa</h2>
+        <p>Program Beasiswa ini disediakan untuk mendukung mahasiswa berprestasi dan kurang mampu agar dapat menempuh pendidikan dengan lebih baik di Fakultas Hukum Universitas Andalas.</p>
+      </div>
+      <a href="https://fhuk.unand.ac.id/pengumuman" class="scholarship-btn"><i class="fas fa-award"></i> Beasiswa</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PENGUMUMAN & AGENDA ===== -->
+<section id="announcement">
+  <div class="container">
+    <div class="text-center">
+      <span class="sec-label">Pengumuman dan Agenda</span>
+      <h2 class="sec-title">Pengumuman Terbaru dan Jadwal Agenda Kegiatan</h2>
+      <div class="sec-line center"></div>
+    </div>
+    <div class="ann-layout">
+      <!-- Pengumuman -->
+      <div>
+        <!-- Featured announcement -->
+        <div class="ann-featured">
+          <img src="https://fhuk.unand.ac.id/photos/2026/03/pengumuman-daftar-ketua-dan-pembina-lembaga-mahasiswa-ukmfhima-tahun-2026-130326021624.webp" alt="Daftar Ketua UKMF/HIMA 2026">
+          <div class="ann-featured-body">
+            <p class="ann-tag">Fakultas Hukum Unand</p>
+            <h3><a href="https://fhuk.unand.ac.id/pengumuman/210/daftar-ketua-dan-pembina-lembaga-mahasiswa-ukmf-hima-tahun-2026.html">Daftar Ketua dan Pembina Lembaga Mahasiswa (UKMF/HIMA) Tahun 2026</a></h3>
+            <p class="ann-date">13 Maret 2026</p>
+            <p>Diberitahukan kepada seluruh civitas akademika, berikut adalah daftar nama Ketua dan Pembina Lembaga Mahasiswa (UKMF/HIMA) yang akan menjalankan...</p>
+          </div>
+        </div>
+        <h3 class="ann-col-title"><i class="fas fa-bullhorn"></i> Pengumuman Terbaru</h3>
+        <div class="ann-item">
+          <div class="ann-date-box"><span class="d">12</span><span class="m">Mar</span></div>
+          <div class="ann-item-body">
+            <h4><a href="https://fhuk.unand.ac.id/pengumuman/209/pengumuman-tentang-penyesuaian-jam-layanan-selama-bulan-suci-ramadhan-1447-h-dan-jadwal-libur-nasional-di-lingkungan-fakultas-hukum.html">Pengumuman Tentang Penyesuaian Jam Layanan Selama Bulan Suci Ramadhan 1447 H dan Jadwal Libur Nasional</a></h4>
+            <p>Sehubungan dengan pelaksanaan ibadah pada Bulan Suci Ramadhan 1447 Hijriah serta berdasarkan Surat Edaran Rektor Universitas Andalas Nomor 5 Tahun 2026...</p>
+          </div>
+        </div>
+        <div class="ann-item">
+          <div class="ann-date-box"><span class="d">06</span><span class="m">Mar</span></div>
+          <div class="ann-item-body">
+            <h4><a href="https://fhuk.unand.ac.id/pengumuman/207/pembukaan-lustrum-ke-xv-penutupan-mtq-dan-serah-terima-mushalla.html">Pembukaan Lustrum ke-XV Penutupan MTQ dan Serah Terima Mushalla</a></h4>
+            <p>Dalam rangka Lustrum ke-XV Fakultas Hukum Universitas Andalas, akan dilaksanakan kegiatan Pembukaan Lustrum ke-XV sekaligus Penutupan MTQ dan Serah Terima...</p>
+          </div>
+        </div>
+        <div class="ann-item">
+          <div class="ann-date-box"><span class="d">04</span><span class="m">Mar</span></div>
+          <div class="ann-item-body">
+            <h4><a href="https://fhuk.unand.ac.id/pengumuman/206/jam-pelayanan-mahasiswa-fakultas-hukum-universitas-andalas-selama-bulan-ramadhan.html">Jam Pelayanan Mahasiswa Fakultas Hukum Universitas Andalas Selama Bulan Ramadhan</a></h4>
+            <p>Sehubungan dengan pelaksanaan ibadah di bulan suci Ramadhan, berikut disampaikan penyesuaian jam pelayanan mahasiswa di Fakultas Hukum Universitas Andalas...</p>
+          </div>
+        </div>
+      </div>
+      <!-- Agenda -->
+      <div>
+        <h3 class="ann-col-title"><i class="fas fa-calendar-check"></i> Agenda Kegiatan</h3>
+        <div class="agenda-item">
+          <div class="agenda-icon-wrap"><i class="fas fa-utensils"></i></div>
+          <div class="agenda-body">
+            <h4><a href="https://fhuk.unand.ac.id/agenda/8/halal-bi-halal-unand-culinary-fest-2026.html">Halal Bi Halal & UNAND Culinary Fest 2026</a></h4>
+            <p>Lantai 1 Auditorium Universitas Andalas</p>
+            <p class="agenda-date"><i class="fas fa-calendar"></i> Rabu, 1 April 2026</p>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-icon-wrap"><i class="fas fa-chalkboard-teacher"></i></div>
+          <div class="agenda-body">
+            <h4><a href="https://fhuk.unand.ac.id/agenda/7/kuliah-umum-workshop-bersama-prof-dr-topo-santoso-s-h-m-h.html">Kuliah Umum & Workshop Bersama Prof. Dr. Topo Santoso, S.H., M.H.</a></h4>
+            <p>Ruang Seminar Tahir Lt. 2, Fakultas Hukum UNAND</p>
+            <p class="agenda-date"><i class="fas fa-calendar"></i> 1 April 2026</p>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-icon-wrap"><i class="fas fa-award"></i></div>
+          <div class="agenda-body">
+            <h4><a href="https://fhuk.unand.ac.id/agenda/6/pelantikan-ketua-unit-kegiatan-mahasiswa-fakultas-ukmf-dan-himpunan-mahasiswa-hima.html">Pelantikan Ketua Unit Kegiatan Mahasiswa Fakultas (UKMF) dan Himpunan Mahasiswa (HIMA)</a></h4>
+            <p>Gedung Serba Guna (GSG) Fakultas Hukum Universitas Andalas</p>
+            <p class="agenda-date"><i class="fas fa-calendar"></i> Kamis, 12 Maret 2026 · 09.30 – 12.00 WIB</p>
+          </div>
+        </div>
+        <a href="https://fhuk.unand.ac.id/agenda" class="view-all-btn">Lihat Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CAMPUS ===== -->
+<section id="campus" style="background:#fff;">
+  <div class="container">
+    <div class="text-center">
+      <span class="sec-label">Lokasi Kampus</span>
+      <h2 class="sec-title">Satu Fakultas, Banyak Ruang Belajar dan Pengalaman</h2>
+      <div class="sec-line center"></div>
+    </div>
+    <div class="campus-grid">
+      <div class="campus-card">
+        <img src="https://fhuk.unand.ac.id/assets/img/all-img/campus-image-1.png" alt="Kampus Limau Manis"
+             onerror="this.style.background='linear-gradient(135deg,#1b3a6b,#2756a0)';this.style.height='260px';">
+        <div class="campus-overlay">
+          <h3>Kampus Limau Manis</h3>
+          <a href="https://fhuk.unand.ac.id/berita" class="campus-tour-link"><i class="fas fa-vr-cardboard"></i> Virtual Tour</a>
+        </div>
+      </div>
+      <div class="campus-card">
+        <img src="https://fhuk.unand.ac.id/assets/img/all-img/campus-image-2.png" alt="Kampus Pancasila"
+             onerror="this.style.background='linear-gradient(135deg,#0d1e3b,#1b3a6b)';this.style.height='260px';">
+        <div class="campus-overlay">
+          <h3>Kampus Pancasila</h3>
+          <a href="https://fhuk.unand.ac.id/berita" class="campus-tour-link"><i class="fas fa-vr-cardboard"></i> Virtual Tour</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AKREDITASI ===== -->
+<section id="accreditation">
+  <div class="container">
+    <div class="text-center">
+      <span class="sec-label">Fakultas Hukum Universitas Andalas</span>
+      <h2 class="sec-title">Akreditasi dan Penjaminan Mutu</h2>
+      <p class="sec-sub" style="max-width:600px;margin:10px auto;">Seluruh program studi di Fakultas Hukum Universitas Andalas telah memperoleh akreditasi sebagai bentuk pengakuan terhadap kualitas pendidikan, penelitian, dan pengabdian kepada masyarakat.</p>
+      <div class="sec-line center"></div>
+    </div>
+    <div class="accred-grid">
+      <div class="accred-card">
+        <img src="https://fhuk.unand.ac.id/assets/img/akreditasi/akreditasi-prodi-s1-hukum.jpg" alt="Program Studi S1 Ilmu Hukum">
+      </div>
+      <div class="accred-card">
+        <img src="https://fhuk.unand.ac.id/assets/img/akreditasi/akreditasi-prodi-s2-magister-hukum.jpg" alt="Program Studi Magister Hukum">
+      </div>
+      <div class="accred-card">
+        <img src="https://fhuk.unand.ac.id/assets/img/akreditasi/akreditasi-prodi-s2-magister-kenotariatan.jpg" alt="Program Studi Magister Kenotariatan">
+      </div>
+      <div class="accred-card">
+        <img src="https://fhuk.unand.ac.id/assets/img/akreditasi/akreditasi-prodi-s3-doktor-ilmu-hukum.jpg" alt="Program Studi Doktor Ilmu Hukum">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ARTIKEL & OPINI ===== -->
+<section id="artikel" style="background:#fff;">
+  <div class="container">
+    <div class="text-center">
+      <span class="sec-label">Artikel dan Tulisan</span>
+      <h2 class="sec-title">Artikel dan Opini Akademisi, Praktisi, serta Mahasiswa</h2>
+      <div class="sec-line center"></div>
+    </div>
+    <div class="artikel-grid">
+      <div class="artikel-card">
+        <a href="https://fhuk.unand.ac.id/artikel/87/mk-dan-krisis-konstitusionalitas.html">
+          <img src="https://fhuk.unand.ac.id/photos/2025/05/thumb_artikeltulisan-mk-dan-krisis-konstitusionalitas-120126021834.webp" alt="MK Dan Krisis Konstitusionalitas">
+        </a>
+        <div class="artikel-body">
+          <h3><a href="https://fhuk.unand.ac.id/artikel/87/mk-dan-krisis-konstitusionalitas.html">MK Dan Krisis Konstitusionalitas</a></h3>
+          <p>Ditulis Oleh : Ilhamdi Putra, SH., MH — Diterbitkan Oleh : Padang Ekspres, 15 Mei 2025. MK mengalami titik balik ketika Ketua MK, Akil Mochtar, menjadi...</p>
+          <p class="artikel-author"><i class="fas fa-user-edit"></i> Ilhamdi Putra, SH., MH</p>
+        </div>
+      </div>
+      <div class="artikel-card">
+        <a href="https://fhuk.unand.ac.id/artikel/86/tak-ada-karpet-merah-lapik-buruk-pun-jadi-tanggapan-atas-tulisan-rektor-riki-saputra.html">
+          <img src="https://fhuk.unand.ac.id/photos/2024/07/thumb_artikeltulisan-tak-ada-karpet-merah-lapik-buruk-pun-jadi-tanggapan-atas-tulisan-rektor-riki-120126023012.webp" alt="Tak Ada Karpet Merah">
+        </a>
+        <div class="artikel-body">
+          <h3><a href="https://fhuk.unand.ac.id/artikel/86/tak-ada-karpet-merah-lapik-buruk-pun-jadi-tanggapan-atas-tulisan-rektor-riki-saputra.html">Tak Ada Karpet Merah, Lapik Buruk Pun Jadi</a></h3>
+          <p>Ditulis Oleh : Ilhamdi Putra, SH., MH — Diterbitkan Oleh : langgam.id / 29 Juni 2024. Putusan MK Nomor 03-03/PHPU.DPD-XXII/2024 adalah mara...</p>
+          <p class="artikel-author"><i class="fas fa-user-edit"></i> Ilhamdi Putra, SH., MH</p>
+        </div>
+      </div>
+      <div class="artikel-card">
+        <a href="https://fhuk.unand.ac.id/artikel/85/reformasi-bagian-ii-introspeksi.html">
+          <img src="https://fhuk.unand.ac.id/photos/2024/06/thumb_artikeltulisan-reformasi-bagian-ii-introspeksi-120126023023.webp" alt="Reformasi Introspeksi">
+        </a>
+        <div class="artikel-body">
+          <h3><a href="https://fhuk.unand.ac.id/artikel/85/reformasi-bagian-ii-introspeksi.html">Reformasi (bagian II): Introspeksi</a></h3>
+          <p>Ditulis Oleh : Ilhamdi Putra, SH., MH — Diterbitkan Oleh : langgam.id / 27 Mei 2024. Apa yang terjadi 26 tahun lampau tinggal sejarah. Reformasi adalah keping...</p>
+          <p class="artikel-author"><i class="fas fa-user-edit"></i> Ilhamdi Putra, SH., MH</p>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:16px;color:#666;font-size:13.5px;">Ruang ekspresi dan refleksi pemikiran dalam bentuk artikel dan opini seputar hukum, masyarakat, dan kebijakan publik. <a href="https://fhuk.unand.ac.id/artikel" style="color:#1b3a6b;font-weight:700;">Selengkapnya</a></p>
+  </div>
+</section>
+
+<!-- ===== APLIKASI ===== -->
+<section id="aplikasi">
+  <div class="container">
+    <div class="text-center">
+      <span class="sec-label">Fakultas Hukum Universitas Andalas</span>
+      <h2 class="sec-title">Aplikasi dan Sistem Informasi</h2>
+      <div class="sec-line center"></div>
+    </div>
+    <div class="app-grid">
+      <a href="https://espakat.unand.ac.id/login" class="app-card" target="_blank">
+        <img src="https://fhuk.unand.ac.id/assets/img/aplikasi/espakat.jpg" alt="Sistem Informasi Perencanaan Kegiatan Anggaran Tahunan">
+      </a>
+      <a href="https://my.unand.ac.id/auth/login" class="app-card" target="_blank">
+        <img src="https://fhuk.unand.ac.id/assets/img/aplikasi/my-unand.jpg" alt="LAYANAN AKADEMIK ALUMNI">
+      </a>
+      <a href="https://devsaku.unand.ac.id/login" class="app-card" target="_blank">
+        <img src="https://fhuk.unand.ac.id/assets/img/aplikasi/saku.jpg" alt="Sistem Aplikasi Keuangan">
+      </a>
+      <a href="https://simanis.unand.ac.id/" class="app-card" target="_blank">
+        <img src="https://fhuk.unand.ac.id/assets/img/aplikasi/simanis.jpg" alt="Sistem Informasi Manajemen Risiko">
+      </a>
+      <a href="http://layanan.akademik.unand.ac.id/" class="app-card" target="_blank">
+        <img src="https://fhuk.unand.ac.id/assets/img/aplikasi/sipena.jpg" alt="Sistem Informasi Pelayanan Akademik">
+      </a>
+      <a href="https://sso.unand.ac.id/" class="app-card" target="_blank">
+        <img src="https://fhuk.unand.ac.id/assets/img/aplikasi/sso.jpg" alt="Single Sign On">
+      </a>
+    </div>
+    <!-- BANNER PARTNER -->
+    <div class="banner-grid">
+      <a href="https://www.hukumonline.com/" class="banner-card" target="_blank">
+        <img src="https://fhuk.unand.ac.id/assets/img/banner/hukum-online.png" alt="HukumOnline.com">
+      </a>
+      <a href="https://www.sciencedirect.com/" class="banner-card" target="_blank">
+        <img src="https://fhuk.unand.ac.id/assets/img/banner/sciencedirect.png" alt="Science Direct">
+      </a>
+      <a href="https://legal.thomsonreuters.com/en/westlaw" class="banner-card" target="_blank">
+        <img src="https://fhuk.unand.ac.id/assets/img/banner/westlaw.png" alt="Thomson Reuters Westlaw">
+      </a>
+      <a href="https://ebook.bsdk.mahkamahagung.go.id/" class="banner-card" target="_blank">
+        <img src="https://fhuk.unand.ac.id/assets/img/banner/ebook-ma.png" alt="E-Book Mahkamah Agung">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIDEO ===== -->
+<section id="video-section" style="background:#fff;">
+  <div class="container">
+    <div class="text-center">
+      <span class="sec-label">Video</span>
+      <h2 class="sec-title">Video Kegiatan &amp; Dokumentasi</h2>
+      <div class="sec-line center"></div>
+    </div>
+    <div class="video-grid">
+      <div class="video-featured">
+        <img src="https://fhuk.unand.ac.id/photos/2026/03/thumb_video-pembukaan-lustrum-ke-xv-75-tahun-fakultas-hukum-unand-070326063421.webp" alt="Pembukaan Lustrum XV">
+        <a href="https://fhuk.unand.ac.id/video/10/pembukaan-lustrum-ke-xv-75-tahun-fakultas-hukum-unand.html" class="video-play-btn"><i class="fas fa-play"></i></a>
+      </div>
+      <div class="video-list">
+        <div class="video-item">
+          <div class="video-item-thumb">
+            <img src="https://fhuk.unand.ac.id/photos/2026/03/thumb_video-pembukaan-lustrum-ke-xv-75-tahun-fakultas-hukum-unand-070326063421.webp" alt="Lustrum XV">
+            <div class="play-sm"><i class="fas fa-play"></i></div>
+          </div>
+          <div class="video-item-body">
+            <h4><a href="https://fhuk.unand.ac.id/video/10/pembukaan-lustrum-ke-xv-75-tahun-fakultas-hukum-unand.html">PEMBUKAAN LUSTRUM KE-XV, 75 TAHUN FAKULTAS HUKUM UNAND</a></h4>
+          </div>
+        </div>
+        <div class="video-item">
+          <div class="video-item-thumb">
+            <img src="https://fhuk.unand.ac.id/photos/2025/05/thumb_ideo-video-of-law-faculty-facilities-220525101429.webp" alt="Law Faculty Facilities">
+            <div class="play-sm"><i class="fas fa-play"></i></div>
+          </div>
+          <div class="video-item-body">
+            <h4><a href="https://fhuk.unand.ac.id/video/9/video-of-law-faculty-facilities.html">Video of Law Faculty Facilities</a></h4>
+          </div>
+        </div>
+        <div class="video-item">
+          <div class="video-item-thumb">
+            <img src="https://fhuk.unand.ac.id/photos/2025/05/thumb_ideo-english-law-faculty-profile-video-220525101149.webp" alt="English Law Faculty Profile">
+            <div class="play-sm"><i class="fas fa-play"></i></div>
+          </div>
+          <div class="video-item-body">
+            <h4><a href="https://fhuk.unand.ac.id/video/8/english-law-faculty-profile-video.html">English Law Faculty Profile Video</a></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:16px;color:#666;font-size:13.5px;">Saksikan berbagai video inspiratif dan informatif seputar aktivitas kampus. <a href="https://fhuk.unand.ac.id/video" style="color:#1b3a6b;font-weight:700;">Lihat Video Lainnya</a></p>
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section id="newsletter">
+  <div class="container">
+    <span class="sec-label" style="color:#c9a227;display:block;margin-bottom:8px;">Subscribe to Our Newsletter</span>
+    <h2 class="sec-title" style="color:#fff;">Get the Latest Fakultas Hukum Universitas Andalas<br>News Delivered to You Inbox</h2>
+    <div style="margin-top:20px;">
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="email" placeholder="Enter your email address...">
+        <button type="submit">Subscribe Now</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="https://fhuk.unand.ac.id/assets/img/logo/white-logo.png" alt="FH Unand"
+               onerror="this.onerror=null;this.src='https://fhuk.unand.ac.id/assets/img/logo/logo.png';">
+        </div>
+        <p>Fakultas Hukum Universitas Andalas berkomitmen menjadi institusi pendidikan tinggi hukum yang bermartabat, berdaya saing global, dan menghasilkan ahli hukum berkarakter Andalasian.</p>
+        <div class="footer-contact-list">
+          <a href="mailto:sekretariat@fhuk.unand.ac.id"><i class="fas fa-envelope"></i> sekretariat@fhuk.unand.ac.id</a>
+          <a href="mailto:pengaduan@fhuk.unand.ac.id"><i class="fas fa-envelope"></i> pengaduan@fhuk.unand.ac.id</a>
+          <a href="tel:+6275172985"><i class="fas fa-phone"></i> Telp: +62-751-72985</a>
+          <a href="#"><i class="fas fa-fax"></i> Fax: +62-751-778109</a>
+          <a href="#"><i class="fas fa-map-marker-alt"></i> Gedung Dekanat Fakultas Hukum Universitas Andalas, Limau Manis, Padang, Sumatera Barat</a>
+        </div>
+        <div class="footer-social">
+          <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" title="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <!-- Selayang Pandang -->
+      <div class="footer-col">
+        <h5>Selayang Pandang</h5>
+        <ul>
+          <li><a href="https://fhuk.unand.ac.id/profil/1/sejarah.html">Sejarah</a></li>
+          <li><a href="https://fhuk.unand.ac.id/profil/2/visi-dan-misi.html">Visi dan Misi</a></li>
+          <li><a href="https://fhuk.unand.ac.id/profil/3/struktur-organisasi.html">Struktur Organisasi</a></li>
+          <li><a href="https://fhuk.unand.ac.id/profil/4/karakter-andalasian.html">Karakter Andalasian</a></li>
+          <li><a href="https://fhuk.unand.ac.id/profil/5/rencana-strategis.html">Rencana Strategis</a></li>
+          <li><a href="https://fhuk.unand.ac.id/profil/6/prospectus.html">Prospectus</a></li>
+        </ul>
+      </div>
+      <!-- Program Studi + Akademik -->
+      <div class="footer-col">
+        <h5>Program Studi</h5>
+        <ul>
+          <li><a href="https://fhuk.unand.ac.id/prodi">Fakultas Hukum Unand</a></li>
+          <li><a href="https://fhuk.unand.ac.id/prodi/kategori/1/sarjana-hukum-sh.html">Sarjana Hukum (SH)</a></li>
+          <li><a href="https://fhuk.unand.ac.id/prodi/kategori/2/magister-hukum-mih.html">Magister Hukum (MIH)</a></li>
+          <li><a href="https://fhuk.unand.ac.id/prodi/kategori/3/magister-kenotariatan-mkn.html">Magister Kenotariatan (MKn)</a></li>
+          <li><a href="https://fhuk.unand.ac.id/prodi/kategori/4/doktor-hukum-dr.html">Doktor Hukum (Dr)</a></li>
+        </ul>
+        <h5 style="margin-top:22px;">Akademik</h5>
+        <ul>
+          <li><a href="https://fhuk.unand.ac.id/akademik/kategori/1/informasi-akademik.html">Informasi Akademik</a></li>
+          <li><a href="https://fhuk.unand.ac.id/akademik/kategori/2/jadwal-kuliah.html">Jadwal Kuliah</a></li>
+          <li><a href="https://fhuk.unand.ac.id/akademik/kategori/3/jadwal-ujian.html">Jadwal Ujian</a></li>
+          <li><a href="https://fhuk.unand.ac.id/akademik/kategori/4/kkn-fakultas-hukum-unand.html">KKN Fakultas Hukum Unand</a></li>
+        </ul>
+      </div>
+      <!-- Informasi -->
+      <div class="footer-col">
+        <h5>Informasi</h5>
+        <ul>
+          <li><a href="https://fhuk.unand.ac.id/berita">Berita</a></li>
+          <li><a href="https://fhuk.unand.ac.id/artikel">Artikel, Opini dan Tulisan</a></li>
+          <li><a href="https://fhuk.unand.ac.id/pengumuman">Pengumuman</a></li>
+          <li><a href="https://fhuk.unand.ac.id/agenda">Agenda Kegiatan</a></li>
+          <li><a href="https://fhuk.unand.ac.id/foto">Galeri Foto</a></li>
+          <li><a href="https://fhuk.unand.ac.id/video">Video</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>Copyright&copy; 2026 FH Unand, All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="https://fhuk.unand.ac.id/privacy-policy.html">Privacy Policy</a>
+        <a href="https://fhuk.unand.ac.id/terms-conditions.html">Terms &amp; Conditions</a>
+        <a href="https://fhuk.unand.ac.id/disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+    <div class="footer-logo-bottom" style="padding-bottom:20px;margin-top:10px;">
+      <img src="https://fhuk.unand.ac.id/assets/img/logo/footer-Logo.png" alt="FH Unand Footer Logo"
+           onerror="this.style.display='none'">
+    </div>
+  </div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+  // Hero slider
+  let hCur = 0;
+  const hSlides = document.querySelectorAll('.hero-slide');
+  const hDots = document.querySelectorAll('.hero-dot');
+  function goHero(n) {
+    hSlides[hCur].classList.remove('active');
+    hDots[hCur].classList.remove('active');
+    hCur = (n + hSlides.length) % hSlides.length;
+    hSlides[hCur].classList.add('active');
+    hDots[hCur].classList.add('active');
+  }
+  function heroSlide(dir) { goHero(hCur + dir); }
+  setInterval(() => heroSlide(1), 5000);
+
+  // Navbar scroll behavior
+  const navbar = document.getElementById('navbar');
+  const topHeader = document.getElementById('top-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
+    } else {
+      navbar.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+    }
+  });
+
+  // Offcanvas
+  function toggleOffcanvas() {
+    document.getElementById('ocMenu').classList.toggle('open');
+    document.getElementById('ocOverlay').classList.toggle('open');
+    document.body.style.overflow = document.getElementById('ocMenu').classList.contains('open') ? 'hidden' : '';
+  }
+
+  // Logo: switch to color logo on scroll (like original)
+  const logoWhite = document.querySelector('.logo-white');
+  window.addEventListener('scroll', () => {
+    if(logoWhite) {
+      if (window.scrollY > 10) {
+      } else {
+        logoWhite.style.filter = '';
+      }
+    }
+  });
+</script>
+</body>
+</html>
